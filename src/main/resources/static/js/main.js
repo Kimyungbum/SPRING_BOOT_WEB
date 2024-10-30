@@ -124,3 +124,9 @@
     
 })(jQuery);
 
+function confirmClose() {
+    // 사용자가 확인을 누르면 창을 닫음
+    if (confirm("현재 창을 닫으시겠습니까?")) {
+        window.close();
+    }
+}

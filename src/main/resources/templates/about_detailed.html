@@ -30,6 +30,9 @@
 
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
+
+     <!-- 팝업기능이 있는 main.js불러오기 -->
+    <script src="/js/main.js"></script>
 </head>
 
 <body>
@@ -42,7 +45,8 @@
                 <h1 class="display-5 mb-0">김 용 범</h1>
             </div>
             <div class="col-lg-6 text-lg-end">
-                <a class="btn btn-primary py-3 px-5" href="/">되돌아가기</a>
+                <!--<a class="btn btn-primary py-3 px-5" href="/">되돌아가기</a>-->
+                <a class="btn btn-primary py-3 px-5" href="javascript:void(0);" onclick="confirmClose()">되돌아가기</a>
             </div>
         </div>
         <div class="row g-4">
