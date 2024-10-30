@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>두번째 헬로 페이지</title>
+</head>
+<body>
+    <h1>안녕하세요</h1>
+
+    <p><strong>이름:</strong> <span th:text="${greeting}"></span></p>
+    <p><strong>이름:</strong> <span th:text="${name}"></span></p>
+    <p><strong>날짜:</strong> <span th:text="${date}"></span></p>
+    <p><strong>위치:</strong> <span th:text="${location}"></span></p>
+    <p><strong>메시지:</strong> <span th:text="${message}"></span></p>
+    
+    <a href="/">메인 페이지로 돌아가기</a>
+</body>
+</html>

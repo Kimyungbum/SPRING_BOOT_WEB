@@ -7,13 +7,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 import com.example.demo.model.domain.TestDB;
 import com.example.demo.model.service.TestService;
+
 @Controller // 컨트롤러 어노테이션 명시
-
-
 public class DemoController{
     @Autowired
     TestService testService;
 
+    @GetMapping("/about_detailed")
+    public String  about() {
+    return "about_detailed";
+    }
 
 @GetMapping("/hello") // 전송 방식 GET
 public String hello(Model model) {
@@ -28,6 +31,17 @@ public String getAllTestDBs(Model model) {
     System.out.println("데이터 출력 디버그 : " + test);
     return "testdb";
 }
+
+@GetMapping("/hello2")
+    public String hello2(Model model) {
+        model.addAttribute("greeting", "안녕하세요!");
+        model.addAttribute("name", "김용범");
+        model.addAttribute("date", "2024년 10월 30일");
+        model.addAttribute("location", "안양");
+        model.addAttribute("message", "HELLO2페이지 입니다.");
+        return "hello2"; 
+    }
+
 }
 
 /*@GetMapping("/test1")
