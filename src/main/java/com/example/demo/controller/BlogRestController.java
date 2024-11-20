@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.*;
 public class BlogRestController {
     private final BlogService blogService;
 
-    @PostMapping("/api/articles")
+    /*@PostMapping("/api/articles")
     public ResponseEntity<Article> addArticle(@ModelAttribute AddArticleRequest request) {
         Article saveArticle = blogService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED)
             .body(saveArticle);
-    }
-}
+    }*/
+} 
