@@ -1,29 +1,28 @@
 package com.example.demo.model.service;
 
-import lombok.*; // 어노테이션 자동 생성
+import lombok.*;
 import com.example.demo.model.domain.Board;
+//import java.time.LocalDate;
 
-@NoArgsConstructor // 기본 생성자 추가
-@AllArgsConstructor // 모든 필드 값을 파라미터로 받는 생성자 추가
-@Data // getter, setter, toString, equals 등 자동 생성
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 public class AddArticleRequest {
     private String title;
     private String content;
     private String user;
-    private String newdate;
-    private String count;
-    private String likec;
+    private String newdate; // 날짜 타입 변경
+    private String count; // 숫자 타입으로 변경
+    private String likec; // 숫자 타입으로 변경
 
-        public Board toEntity(){ // Article 객체 생성
-            return Board.builder()
-            .title(title)
-            .content(content)
-            .user(user)
-            .newdate(newdate)
-            .count(count)
-            .likec(likec)
-            .build();
-        }
-} 
-
-
+    public Board toEntity() { // Board 객체 생성
+        return Board.builder()
+                .title(title)
+                .content(content)
+                .user(user)
+                .newdate(newdate.toString()) // Board의 필드에 맞게 변환
+                .count(count)
+                .likec(likec)
+                .build();
+    }
+}

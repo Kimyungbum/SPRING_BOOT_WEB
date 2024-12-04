@@ -1,9 +1,17 @@
-/*package com.example.demo.model.domain;
-
+package com.example.demo.model.domain;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Table;
+import jakarta.persistence.Id;
 import jakarta.persistence.Column;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import lombok.Builder;
+import lombok.*;
+
+@Getter
+@Entity
+@Table(name = "member")
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 
 public class Member {
     @Id
@@ -40,5 +48,5 @@ public class Member {
     }
 
 
-}*/
+}
 

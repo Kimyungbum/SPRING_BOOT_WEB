@@ -128,31 +128,32 @@ import org.springframework.data.domain.Pageable;
 public class BlogService {
 @Autowired
 
-    private final BoardRepository boardRepository; // 리포지토리 선언
+    private final BoardRepository blogRepository; // 리포지토리 선언
 
     public void delete(Long id) { // 게시글 삭제
-        boardRepository.deleteById(id);
+        blogRepository.deleteById(id);
     }
 
     public List<Board> findAll() { // 게시판 전체 목록 조회
-        return boardRepository.findAll();
+        return blogRepository.findAll();
     }
 
     public Optional<Board> findById(Long id) { // 게시판 특정 글 조회
-        return boardRepository.findById(id);
+        return blogRepository.findById(id);
     }
 
     public Board save(AddArticleRequest request){
         // DTO가 없는 경우 이곳에 직접 구현 가능
-        return boardRepository.save(request.toEntity());
+        //return boardRepository.save(request.toEntity());
+        return blogRepository.save(request.toEntity());
     }
 
     public Page<Board> findAll(Pageable pageable) {
-        return boardRepository.findAll(pageable);
+        return blogRepository.findAll(pageable);
         }
 
     public Page<Board> searchByKeyword(String keyword, Pageable pageable) {
-        return boardRepository.findByTitleContainingIgnoreCase(keyword, pageable);
+        return blogRepository.findByTitleContainingIgnoreCase(keyword, pageable);
         } // LIKE 검색 제공(대소문자 무시)
             
 } 

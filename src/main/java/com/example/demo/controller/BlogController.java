@@ -25,12 +25,17 @@ import com.example.demo.model.service.AddArticleRequest;
 //import com.example.demo.model.service.AddArticleRequest;
 import com.example.demo.model.service.BlogService;
 
+import jakarta.servlet.http.HttpSession;
+
 @Controller // 컨트롤러 어노테이션 명시
 
 public class BlogController {
 
     @Autowired
     BlogService blogService;
+
+     @Autowired
+    private HttpSession session;
 
     /*@GetMapping("/article_list") // 게시판 링크 지정
     public String article_list(Model model) {
@@ -70,6 +75,12 @@ public class BlogController {
         Model model,
         @RequestParam(defaultValue = "0") int page,
         @RequestParam(defaultValue = "") String keyword) {
+            String userId = (String) session.getAttribute("userId");
+            String email = (String) session.getAttribute("email"); 
+            if (userId == null) {
+                return "redirect:/member_login"; // 로그인 페이지로 리다이렉션
+                }
+                System.out.println("세션 userId: " + userId);
     
     PageRequest pageable = PageRequest.of(page, 3); // 한 페이지에 게시글 3개 표시
     Page<Board> list;
@@ -84,6 +95,7 @@ public class BlogController {
     model.addAttribute("totalPages", list.getTotalPages()); // 전체 페이지 수
     model.addAttribute("currentPage", page);           // 현재 페이지 번호
     model.addAttribute("keyword", keyword);            // 검색 키워드
+    model.addAttribute("email", email); 
 
     return "board_list"; // 연결할 HTML 파일
 }
