@@ -124,6 +124,7 @@ public class BlogController {
         return "redirect:/board_list"; // .HTML 연결
 }
 
+
     } 
     
    
