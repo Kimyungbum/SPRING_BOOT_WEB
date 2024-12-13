@@ -9,6 +9,8 @@
 #5주차 수업 완료 / 추가 문제 구현 X
 
 #6주차 수업 완료 + 추가 문제 구현 완료
+![home](https://github.com/user-attachments/assets/50030e13-18f2-46a1-88f6-088a06e9d697)
+
 
 #7주차 수업 완료
 
