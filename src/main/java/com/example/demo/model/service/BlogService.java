@@ -128,6 +128,7 @@ import org.springframework.data.domain.Pageable;
 public class BlogService {
 @Autowired
 
+
     private final BoardRepository blogRepository; // 리포지토리 선언
 
     public void delete(Long id) { // 게시글 삭제
@@ -156,5 +157,39 @@ public class BlogService {
         return blogRepository.findByTitleContainingIgnoreCase(keyword, pageable);
         } // LIKE 검색 제공(대소문자 무시)
             
+        public void update(Long id, AddArticleRequest request) {
+            // 1. 게시글을 id로 찾기
+            Board board = blogRepository.findById(id)
+                    .orElseThrow(() -> new IllegalArgumentException("게시글이 존재하지 않습니다."));
+    
+            // 2. 제목과 내용 수정
+            board.setTitle(request.getTitle());    // 제목 수정
+            board.setContent(request.getContent()); // 내용 수정
+    
+            // 3. 추가된 필드 수정 (null 체크 후 수정)
+            // `request.getUser()`가 null이 아니면 수정
+            if (request.getUser() != null) {
+                board.setUser(request.getUser());
+            }
+    
+            // `request.getNewdate()`가 null이 아니면 수정
+            if (request.getNewdate() != null) {
+                board.setNewdate(request.getNewdate());
+            }
+    
+            // `request.getCount()`가 null이 아니면 수정
+            if (request.getCount() != null) { // Count는 숫자이므로, 0을 기본값으로 체크
+                board.setCount(request.getCount());
+            }
+    
+            // `request.getLikec()`가 null이 아니면 수정
+            if (request.getLikec() != null) { // Likec도 숫자이므로, 0을 기본값으로 체크
+                board.setLikec(request.getLikec());
+            }
+    
+            // 4. 수정된 게시글을 저장
+            blogRepository.save(board);
+        }
+
 } 
 

@@ -3,6 +3,9 @@ package com.example.demo.model.domain;
 import lombok.*;
 import jakarta.persistence.*;
 
+@AllArgsConstructor
+@Builder
+@Setter
 @Getter // setter는 없음(무분별한 변경 x)
 @Entity // 아래 객체와 DB 테이블을 매핑. JPA가 관리
 @Table(name = "board") // 테이블 이름을 지정. 없는 경우 클래스이름으로 설정

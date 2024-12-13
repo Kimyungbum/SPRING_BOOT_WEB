@@ -2,7 +2,6 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>블로그 게시판</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
@@ -56,7 +55,7 @@
                             <a class="btn btn-warning" th:href="@{/board_edit/{id}(id=${board.id})}">수정</a>
                             <!-- 삭제 버튼 -->
                             <form th:action="@{/api/board_delete/{id}(id=${board.id})}" method="post" style="display:inline;">
-                                <input type="hidden" name="_method" value="delete">
+                                <input type="hidden" name="_method" value="post">
                                 <button type="submit" class="btn btn-danger">삭제</button>
                         </form>
                         </td>                    
@@ -66,4 +65,5 @@
     </div>
 </div>
 </body>
-</html>
+</html><title>블로그 게시판</title>
+    
